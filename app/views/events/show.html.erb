@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+  <div class="fields">
+    <div class="margin-botton-small">
+      <label> Name </label> <%= @event.name %>
+    </div>
+    <div class="margin-botton-small">
+      <label> Amount </label> <%=@event.amount %>
+    </div>  
+
+    <div class="fields" style="padding-top: 0px;">
+      <h4 style="margin-left: -10px;"> Payment details: </h4>
+      <% @event.payments.each do |payment| %>
+        <div class="margin-botton-small">
+          <label> User name </label> <%= payment.user.name %> 
+        </div>
+        <div class="margin-botton-small">
+          <label> Amount </label> <%= payment.amount %>
+        </div> 
+      <% end %>
+    </div>
+  </div>

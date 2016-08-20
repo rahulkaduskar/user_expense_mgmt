@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UsersExpenceMgmt</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<section>
+	<div class="heading"> 
+		<h2>Expense Manager</h2>
+	</div>
+	<div class="top-links-container">
+		<%= link_to 'Create user', new_user_path %> |  <%= link_to 'Create Event', new_event_path %>
+	</div>
+</secton>
+
+<div class="container">
+	<%= yield %>
+</div>
+
+</body>
+</html>
