@@ -1,0 +1,9 @@
+<div class="">
+  <%= fields_for 'event[event_users_attributes][]', @event_users do |event_user| %>
+	    <div class="margin-botton-small">
+	      <label> User name </label> 
+	      <%= text_field "typeahead", 'input', class: "typeahead" %>
+	      <%= event_user.hidden_field :user_id %>
+	    </div>
+  <% end %>
+</div>

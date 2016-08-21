@@ -1,0 +1,13 @@
+
+<div class="fields">
+  <%= fields_for 'event[payments_attributes][]', @payments do |payment| %>
+    <div class="margin-botton-small">
+      <label> User name </label> 
+      <%= text_field "typeahead", 'input' , class: "typeahead" %>
+      <%= payment.hidden_field :user_id %>
+    </div>
+    <div class="margin-botton-small">
+      <label> Amount </label> <%= payment.text_field :amount %>
+    </div>  
+  <% end %>
+</div>

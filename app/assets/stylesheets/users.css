@@ -2,3 +2,18 @@
 .fields {
 	padding: 10px;
 }
+
+.details_row {
+	width: 600px;
+	float: none;
+	clear: both;
+}
+
+.details_row div {
+	width: 200px;
+	float: left;
+}
+.clear-float {
+	float: none;
+  clear: both;
+}

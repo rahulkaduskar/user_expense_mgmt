@@ -11,20 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160820082300) do
+ActiveRecord::Schema.define(version: 20160821153405) do
 
-  create_table "events", force: true do |t|
-    t.string   "name",                     null: false
-    t.float    "amount",     default: 0.0
+  create_table "event_users", force: true do |t|
+    t.integer  "event_id",   null: false
+    t.integer  "user_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "events_users", force: true do |t|
-    t.integer  "event_i",    null: false
-    t.integer  "user_id",    null: false
+  create_table "events", force: true do |t|
+    t.string   "name",                            null: false
+    t.float    "amount",            default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "event_users_count"
   end
 
   create_table "payments", force: true do |t|

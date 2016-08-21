@@ -9,7 +9,16 @@
     </div>  
 
     <div class="fields" style="padding-top: 0px;">
-      <h4 style="margin-left: -10px;"> Payment details: </h4>
+      <h5 style=""> Users of this event: </h5>
+      <% @event.users.each do |user| %>
+        <div class="margin-botton-small">
+          <label> User name </label> <%= user.name %> 
+        </div>
+      <% end %>
+    </div>
+
+    <div class="fields" style="padding-top: 0px;">
+      <h5 style=""> Payment details: </h5>
       <% @event.payments.each do |payment| %>
         <div class="margin-botton-small">
           <label> User name </label> <%= payment.user.name %> 

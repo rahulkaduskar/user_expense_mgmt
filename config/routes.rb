@@ -1,7 +1,18 @@
 Rails.application.routes.draw do
-  resources :events
+  resources :payments
 
-  resources :users
+  resources :events do
+    collection do
+      get :add_user
+      get :add_payment
+    end
+  end
+
+  resources :users do
+    collection do
+      post :search
+    end
+  end
   root 'home#index'
   
   # The priority is based upon order of creation: first created -> highest priority.

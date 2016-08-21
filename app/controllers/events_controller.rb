@@ -7,13 +7,10 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
-    @event.payments.build
   end
 
-  def create
-    binding.pry
+  def create   
     @event = Event.new(event_params)
-     binding.pry
     if @event.save
        redirect_to @event, notice: 'Event was successfully created.' 
     else
@@ -25,9 +22,22 @@ class EventsController < ApplicationController
   def show
     @event = Event.where(["id = ?", params[:id]]).first
   end
+
+  def add_user
+    @event = Event.new
+    @event_users = @event.event_users.build 
+    render layout: false
+  end
+
+  def add_payment
+    @event = Event.new
+    @payments = @event.payments.new
+    render layout: false
+  end
+
   private
     
     def event_params
-      params.require(:event).permit(:name, :amount, :payments_attributes => [:user_id, :amount])
+      params.require(:event).permit(:name, :amount, event_users_attributes:[:user_id], payments_attributes: [:user_id, :amount])
     end
 end

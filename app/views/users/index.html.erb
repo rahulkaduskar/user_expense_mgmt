@@ -1,5 +1,30 @@
 <div>
-  <% @users.each do | user | %>
-	<div> <%= user.name %></div>  <div> <%= user.email %></div> </br>
-  <% end %>
+	<div style="margin: 10px 0px;">
+		<% if @users.present? %>
+			<table class="table table-inverse">
+			  <thead>
+			    <tr>
+			      <th>Name</th>
+			      <th>Email</th>
+			      <th>Action</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+		   
+				  <% @users.each do | user | %>
+						<tr>
+				      <td> <%= user.name %></td>
+				      <td> <%= user.email %></td>
+				      <td class="actions">
+				      	<%= link_to 'details', user_path(user) %> 
+				      </td>
+				    </tr>
+			 		<% end %>
+		 		</tbody>
+		 	</table>
+		<% else %>
+		 	<div> <h3>No user available</h3></div>
+		<% end %>
+  </div>
+ 	<div class="clear"><%= link_to 'New Users', new_user_path %> </div>
 </div>
