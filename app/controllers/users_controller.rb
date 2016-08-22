@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   
   
   def index
-    @users = User.all
+    @users = User.includes.all
   end
 
   def new
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     @users = Payment.joins("inner join users on users")
     @total_expenses = Payment.total_expense(@user.id).first.try("total_expenses") || 0
     @total_paid = Payment.select("sum(amount) as total_paid").where(["user_id =?", @user.id]).first.try("total_paid" )|| 0
-    @user_balance = Payment.joins(:user).events(@user.id)
+    @user_balance = Payment.includes(:user).joins(:user).events(@user.id)
   end
 
   def search

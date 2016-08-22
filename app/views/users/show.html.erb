@@ -6,8 +6,8 @@
 	<div class="span4"><label>Total paid:</label> <%= @total_paid %></div>
 	<div class="span4">
 		<label>Balance to be paid:</label> <%= @total_expenses - @total_paid %>
-		<div class="padding-left"></div><br/>
-			<h5> List of user need to pay: </h5>
+		<h5> List of user need to pay: </h5>
+		<div style="padding-left: 10px;">
 			<% @user_balance.each do |payment| %>
 				<div class="span4"><label>User name:</label> <%= payment.user.name %></div>
 				<div class="span4"><label>Amount</label> <%= payment.amount %></div>
