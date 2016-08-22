@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   
   
   def index
-    @users = User.includes.all
+    @users = User.all
   end
 
   def new
